@@ -61,7 +61,7 @@ long aoDAC::dev_init(void* v)
         new aoDAC((dbCommon*)ao,&(ao->out));
         // set linear conversion slope
         ao->eslo = (ao->eguf - ao->egul)/4095.0;
-        return(0);
+        return(MPF_NoConvert);
 }
 
 aoDAC::aoDAC(dbCommon* pr,DBLINK* l) : DevMpf(pr,l,false)

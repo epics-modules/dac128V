@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type"
 content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
 <title>dac128V.html</title>
 </head>
 
@@ -20,7 +20,7 @@ content="text/html; charset=iso-8859-1">
 <p>This file describes support for the Systran DAC128V, an 8
 channel, 12-bit D/A converter. The following files are included
 in this support, which is available as a <a
-href="ftp://cars.uchicago.edu/pub/epics/dac128VApp.tar">tar file</a>:</p>
+href="http://cars.uchicago.edu/software/pub/dac128VApp.tar">tar file</a>:</p>
 
 <ul>
     <li><table border="1">
@@ -167,6 +167,9 @@ symmetric, bipolar ouput. BEWARE!!!!</p>
 <ul>
     <li>May 17, 2000. Added <font face="Times New Roman"><code>getValue()</code></font>
         method, needed by Ip300PID class.</li>
+    <li>Sept. 27, 2002.&nbsp; Fixed bug in device support initialization.&nbsp;
+      It was returning 0, rather than 2 (MPF_NoConvert).&nbsp; This could cause
+      the initial value of the .VAL field to be corrupted.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -175,7 +178,7 @@ symmetric, bipolar ouput. BEWARE!!!!</p>
     Suggestions and Comments to: <br>
     <a href="mailto:rivers@cars.uchicago.edu">Mark Rivers </a>:
     (rivers@cars.uchicago.edu) <br>
-    Last modified: September 10, 2000 
+    Last modified: September 27, 2002 
 </address>
 </body>
 </html>
