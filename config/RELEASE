@@ -1,4 +1,4 @@
 #RELEASE Location of external products
-include $(TOP)/../config/MPF_RELEASE
-include $(TOP)/../config/RELEASE
+EPICS_BASE=/usr/local/epics/base
+MPF=/home/epics/devel/mpf1-8
 
