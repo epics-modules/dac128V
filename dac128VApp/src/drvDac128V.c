@@ -49,13 +49,17 @@ static const struct asynCommon dac128VCommon = {
 static const asynInt32 drvDac128VInt32 = {
    writeInt32,
    readInt32,
-   getBounds
+   getBounds,
+   NULL,
+   NULL
 };
 
 /* asynFloat64 methods */
 static const asynFloat64 drvDac128VFloat64 = {
    writeFloat64,
-   readFloat64
+   readFloat64,
+   NULL,
+   NULL
 };
 
 typedef struct {
@@ -111,12 +115,12 @@ int initDAC128V(const char *portName, ushort_t carrier, ushort_t slot)
         errlogPrintf("initDAC128V ERROR: Can't register common.\n");
         return -1;
     }
-    status = pasynManager->registerInterface(pPvt->portName,&pPvt->int32);
+    status = pasynInt32Base->initialize(pPvt->portName,&pPvt->int32);
     if (status != asynSuccess) {
         errlogPrintf("initDAC128V ERROR: Can't register int32.\n");
         return -1;
     }
-    status = pasynManager->registerInterface(pPvt->portName,&pPvt->float64);
+    status = pasynFloat64Base->initialize(pPvt->portName,&pPvt->float64);
     if (status != asynSuccess) {
         errlogPrintf("initDAC128V ERROR: Can't register float64.\n");
         return -1;
