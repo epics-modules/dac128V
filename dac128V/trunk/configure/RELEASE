@@ -15,8 +15,8 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 EPICS_BASE=/corvette/usr/local/epics/base-3.14.4
 
 # MPF
-IPAC=/corvette/home/epics/3.14/ipac2-5
-MPF=/corvette/home/epics/3.14/mpf2-4
+IPAC=/corvette/home/epics/3_14/ipac2-6
+MPF=/corvette/home/epics/3_14/mpf2-4
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
