@@ -13,12 +13,12 @@ of this distribution.
 
 */
 
-#include <vxWorks.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
 #include <stdio.h>
-#include <taskLib.h>
+
+#include <epicsThread.h>
 
 #include "Message.h"
 #include "Int32Message.h"
@@ -35,20 +35,22 @@ public:
 
 static char taskname[] = "dac128V";
 extern "C" DAC128V *initDAC128V(
-    const char *moduleName, const char *carrierName, const char *siteName,
+    const char *serverName, ushort_t carrier, ushort_t slot,
     int queueSize)
 {
-    DAC128V *pDAC128V = DAC128V::init(moduleName,carrierName,siteName);
+    DAC128V *pDAC128V = DAC128V::init(carrier, slot);
     if(!pDAC128V) return(0);
-    DAC128VServer *pDAC128VServer = new DAC128VServer;
-    pDAC128VServer->pDAC128V = pDAC128V;
-    pDAC128VServer->pMessageServer = new MessageServer(moduleName,queueSize);
-    int taskId = taskSpawn(taskname,100,VX_FP_TASK,2000,
-        (FUNCPTR)DAC128VServer::dac128VServer,(int)pDAC128VServer,
-        0,0,0,0,0,0,0,0,0);
-    if(taskId==ERROR)
-        printf("%s dac128VServer taskSpawn Failure\n",
-            pDAC128VServer->pMessageServer->getName());
+    DAC128VServer *p = new DAC128VServer;
+    p->pDAC128V = pDAC128V;
+    p->pMessageServer = new MessageServer(serverName,queueSize);
+    epicsThreadId threadId = epicsThreadCreate(taskname, 
+                             epicsThreadPriorityMedium, 10000,
+                             (EPICSTHREADFUNC)DAC128VServer::dac128VServer, 
+                             (void*) p);
+    if(threadId == NULL)
+        errlogPrintf("%s dac128VServer ThreadCreate Failure\n",
+            p->pMessageServer->getName());
+ 
     return(pDAC128V);
 }
 
