@@ -1,6 +1,6 @@
 grecord(ao,"$(P)DAC$(D)_$(N)") {
     field(PINI, "YES")
-    field(DTYP,"asyn Int32")
+    field(DTYP,"asynInt32")
     field(FLNK,"$(P)DAC$(D)_$(N)_return.PROC  PP MS")
     field(OUT,"@asyn($(PORT),$(S))")
     field(EGUL,"$(EGUL)")
@@ -14,7 +14,7 @@ grecord(ao,"$(P)DAC$(D)_$(N)") {
     field(VAL,"$(VAL)")
 }
 grecord(ao,"$(P)DAC$(D)_$(N)_return") {
-    field(DTYP,"asyn Int32")
+    field(DTYP,"asynInt32")
     field(DISV,"0")
     field(SDIS,"$(P)DAC$(D)_$(N)_pulse.VAL  NPP NMS")
     field(OUT,"@asyn($(PORT),$(S))")
