@@ -16,7 +16,7 @@ EPICS_BASE=/corvette/usr/local/epics/base-3.14.3
 
 # MPF
 IPAC=/corvette/home/epics/3.14/ipac2-5
-MPF=/corvette/home/epics/3.14/mpf2-2
+MPF=/corvette/home/epics/3.14/mpf2-4
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
