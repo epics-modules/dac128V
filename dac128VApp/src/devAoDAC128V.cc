@@ -58,8 +58,7 @@ long aoDAC::dev_init(void* v)
 {
         DEBUG(2,"aoDAC::dev_init(v)\n");
         aoRecord* ao = (aoRecord*)v;
-        aoDAC *paoDAC = new aoDAC((dbCommon*)ao,&(ao->out));
-        paoDAC->bind();
+        new aoDAC((dbCommon*)ao,&(ao->out));
         // set linear conversion slope
         ao->eslo = (ao->eguf - ao->egul)/4095.0;
         return(MPF_NoConvert);
