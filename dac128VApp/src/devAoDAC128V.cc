@@ -21,12 +21,10 @@
 #include "dbDefs.h"
 #include "link.h"
 #include "epicsPrint.h"
+#include "epicsExport.h"
 #include "dbCommon.h"
 #include "aoRecord.h"
 #include "recSup.h"
-#include "epicsTypes.h"
-#include "epicsExport.h"
-#include "symTable.h"
 
 #include "Message.h"
 #include "Int32Message.h"
@@ -41,6 +39,7 @@ extern "C"
 #endif
 volatile int devAoDAC128VDebug = 0;
 }
+epicsExportAddress(int, devAoDAC128VDebug);
 
 class aoDAC : public DevMpf
 {
@@ -124,11 +123,4 @@ long aoDAC::convert(dbCommon* pr, int pass)
 
         return 0;
 }
-
-void devAoDAC128VRegister(void) 
-{
-     addSymbol("devAoDAC128VDebug", (epicsInt32 *)&devAoDAC128VDebug, epicsInt32T);
-}
-
-epicsExportRegistrar(devAoDAC128VRegister);
 

@@ -12,14 +12,11 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 #SNCSEQ=$(EPICS_BASE)/../modules/soft/seq
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/corvette/usr/local/epics/base-3.14.2
+EPICS_BASE=/corvette/usr/local/epics/base-3.14.3
 
 # MPF
-IPAC=/corvette/home/epics/3.14/ipac-2.5
+IPAC=/corvette/home/epics/3.14/ipac2-5
 MPF=/corvette/home/epics/3.14/mpf2-2
-
-#STD, needed only for symTable till it's in base 
-STD=/corvette/home/epics/3.14/std
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
