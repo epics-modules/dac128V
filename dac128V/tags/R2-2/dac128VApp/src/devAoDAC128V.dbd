@@ -1,0 +1,5 @@
+device(ao,VME_IO,devAoDAC128V,"dac128V")
+registrar(dac128VServerRegister)
+variable("devAoDAC128VDebug", int)
+
+ 
