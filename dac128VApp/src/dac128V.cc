@@ -18,14 +18,16 @@ of this distribution.
 
 #include <stdio.h>
 #include <drvIpac.h>
+#include <gpHash.h>
  
 #include "DAC128V.h"
 
 #define SYSTRAN_ID 0x45
 #define SYSTRAN_DAC128V 0x69
 
+static void *dac128VHash;
 
-DAC128V * DAC128V::init(ushort_t carrier, ushort_t slot)
+DAC128V * DAC128V::init(const char *name, ushort_t carrier, ushort_t slot)
 {
     if (ipmValidate(carrier, slot, SYSTRAN_ID, SYSTRAN_DAC128V) != 0) {
        printf("initDAC128V module not found in slot\n");
@@ -36,7 +38,19 @@ DAC128V * DAC128V::init(ushort_t carrier, ushort_t slot)
     int LastChan = 7;
     int MaxValue = 4095;
     DAC128V *pDAC128V = new DAC128V(carrier, slot, LastChan, MaxValue);
+
+    if (dac128VHash == NULL) gphInitPvt(&dac128VHash, 256);
+    GPHENTRY *hashEntry = gphAdd(dac128VHash, name, NULL);
+    hashEntry->userPvt = pDAC128V;
+
     return(pDAC128V);
+}
+
+DAC128V* DAC128V::findModule(const char *name)
+{
+    GPHENTRY *hashEntry = gphFind(dac128VHash, name, NULL);
+    if (hashEntry == NULL) return (NULL);
+    return((DAC128V *)hashEntry->userPvt);
 }
 
 DAC128V::DAC128V(
