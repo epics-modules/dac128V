@@ -11,7 +11,7 @@ grecord(ao,"$(P)DAC$(D)_$(N)") {
 	field(PREC,"3")
 }
 grecord(ao,"$(P)DAC$(D)_$(N)_out") {
-	field(DTYP,"asyn Int32")
+	field(DTYP,"asynInt32")
 	field(FLNK,"$(P)DAC$(D)_$(N)_need.VAL  PP MS")
 	field(OUT,"@asyn($(PORT),$(S))")
 	field(PREC,"3")
@@ -22,7 +22,7 @@ grecord(ao,"$(P)DAC$(D)_$(N)_ROC") {
 	field(PREC,"3")
 }
 grecord(ao,"$(P)DAC$(D)_$(N)_rawOut") {
-	field(DTYP,"asyn Int32")
+	field(DTYP,"asynInt32")
 	field(OUT,"@asyn($(PORT),$(S))")
 	field(DRVH,"4095")
 	field(DRVL,"0")
