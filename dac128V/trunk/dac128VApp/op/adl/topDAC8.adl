@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/3.13.0/xxx2/xxxApp/op/adl/topDAC8.adl"
-	version=020303
+	name="/home/oxygen4/MOONEY/epics/synApps_5_1/support/dac128V/cvs/dac128VApp/op/adl/topDAC8.adl"
+	version=030004
 }
 display {
 	object {
@@ -216,8 +216,8 @@ rectangle {
 	}
 	display[0] {
 		label="Channel 1"
-		name="DAC.adl"
-		args="P=$(P),D=$(D),N=1"
+		name="singleDAC.adl"
+		args="P=$(P),D=$(D),C=1"
 	}
 	clr=14
 	bclr=51
@@ -234,6 +234,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -246,6 +248,8 @@ rectangle {
 		chan="$(P)DAC$(D)_6.DESC"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -260,6 +264,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -272,6 +278,8 @@ rectangle {
 		chan="$(P)DAC$(D)_4.DESC"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -286,6 +294,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -299,6 +309,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "related display" {
 	object {
@@ -309,8 +321,8 @@ rectangle {
 	}
 	display[0] {
 		label="Channel 5"
-		name="DAC.adl"
-		args="P=$(P),D=$(D),N=5"
+		name="singleDAC.adl"
+		args="P=$(P),D=$(D),C=5"
 	}
 	clr=14
 	bclr=51
@@ -324,8 +336,8 @@ rectangle {
 	}
 	display[0] {
 		label="Channel 6"
-		name="DAC.adl"
-		args="P=$(P),D=$(D),N=6"
+		name="singleDAC.adl"
+		args="P=$(P),D=$(D),C=6"
 	}
 	clr=14
 	bclr=51
@@ -339,8 +351,8 @@ rectangle {
 	}
 	display[0] {
 		label="Channel 7"
-		name="DAC.adl"
-		args="P=$(P),D=$(D),N=7"
+		name="singleDAC.adl"
+		args="P=$(P),D=$(D),C=7"
 	}
 	clr=14
 	bclr=51
@@ -354,8 +366,8 @@ rectangle {
 	}
 	display[0] {
 		label="Channel 8"
-		name="DAC.adl"
-		args="P=$(P),D=$(D),N=8"
+		name="singleDAC.adl"
+		args="P=$(P),D=$(D),C=8"
 	}
 	clr=14
 	bclr=51
@@ -369,8 +381,8 @@ rectangle {
 	}
 	display[0] {
 		label="Channel 4"
-		name="DAC.adl"
-		args="P=$(P),D=$(D),N=4"
+		name="singleDAC.adl"
+		args="P=$(P),D=$(D),C=4"
 	}
 	clr=14
 	bclr=51
@@ -384,8 +396,8 @@ rectangle {
 	}
 	display[0] {
 		label="Channel 2"
-		name="DAC.adl"
-		args="P=$(P),D=$(D),N=2"
+		name="singleDAC.adl"
+		args="P=$(P),D=$(D),C=2"
 	}
 	clr=14
 	bclr=51
@@ -399,8 +411,8 @@ rectangle {
 	}
 	display[0] {
 		label="Channel 3"
-		name="DAC.adl"
-		args="P=$(P),D=$(D),N=3"
+		name="singleDAC.adl"
+		args="P=$(P),D=$(D),C=3"
 	}
 	clr=14
 	bclr=51
@@ -417,6 +429,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -429,6 +443,8 @@ rectangle {
 		chan="$(P)DAC$(D)_8.DESC"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 text {
@@ -456,4 +472,6 @@ text {
 		bclr=3
 	}
 	align="horiz. centered"
+	limits {
+	}
 }
