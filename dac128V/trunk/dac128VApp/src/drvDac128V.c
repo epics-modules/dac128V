@@ -68,7 +68,6 @@ typedef struct {
 int initDAC128V(const char *portName, ushort_t carrier, ushort_t slot)
 {
     drvDac128VPvt *pPvt;
-    int priority=0;
     asynStatus status;
 
     if (ipmValidate(carrier, slot, SYSTRAN_ID, SYSTRAN_DAC128V) != 0) {
@@ -96,10 +95,10 @@ int initDAC128V(const char *portName, ushort_t carrier, ushort_t slot)
     pPvt->float64.pinterface  = (void *)&drvDac128VFloat64;
     pPvt->float64.drvPvt = pPvt;
     status = pasynManager->registerPort(pPvt->portName,
-                                   1, /*is multiDevice*/
-                                   1,
-                                   priority,
-                                   0);
+                                   ASYN_MULTIDEVICE, /*is multiDevice*/
+                                   1, /* autoConnect */
+                                   0, /* medium priority */
+                                   0); /* default stack size */
     if (status != asynSuccess) {
         errlogPrintf("initDAC128V ERROR: Can't register port\n");
         return -1;
@@ -196,7 +195,7 @@ static asynStatus connect(void *drvPvt, asynUser *pasynUser)
     return(asynSuccess);
 }
 
-/* Connect */
+/* Disonnect */
 static asynStatus disconnect(void *drvPvt, asynUser *pasynUser)
 {
     drvDac128VPvt *pPvt = (drvDac128VPvt *)drvPvt;
