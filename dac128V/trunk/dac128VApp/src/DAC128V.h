@@ -22,7 +22,8 @@ of this distribution.
 class DAC128V
 {
 public:
-    static DAC128V * init(ushort_t carrier, ushort_t slot);
+    static DAC128V *init(const char *name, ushort_t carrier, ushort_t slot);
+    static DAC128V *findModule(const char *name);
     int setValue(int value, int channel);
     int getValue(int *value, int channel);
 private:

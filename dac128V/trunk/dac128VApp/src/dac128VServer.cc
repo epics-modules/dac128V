@@ -19,6 +19,8 @@ of this distribution.
 #include <stdio.h>
 
 #include <epicsThread.h>
+#include <iocsh.h>
+#include <epicsExport.h>
 
 #include "Message.h"
 #include "Int32Message.h"
@@ -33,17 +35,16 @@ public:
 };
 
 
-static char taskname[] = "dac128V";
-extern "C" DAC128V *initDAC128V(
+extern "C" int initDAC128V(
     const char *serverName, ushort_t carrier, ushort_t slot,
     int queueSize)
 {
-    DAC128V *pDAC128V = DAC128V::init(carrier, slot);
-    if(!pDAC128V) return(0);
+    DAC128V *pDAC128V = DAC128V::init(serverName, carrier, slot);
+    if(!pDAC128V) return(-1);
     DAC128VServer *p = new DAC128VServer;
     p->pDAC128V = pDAC128V;
     p->pMessageServer = new MessageServer(serverName,queueSize);
-    epicsThreadId threadId = epicsThreadCreate(taskname, 
+    epicsThreadId threadId = epicsThreadCreate("dac128V", 
                              epicsThreadPriorityMedium, 10000,
                              (EPICSTHREADFUNC)DAC128VServer::dac128VServer, 
                              (void*) p);
@@ -51,7 +52,7 @@ extern "C" DAC128V *initDAC128V(
         errlogPrintf("%s dac128VServer ThreadCreate Failure\n",
             p->pMessageServer->getName());
  
-    return(pDAC128V);
+    return(0);
 }
 
 void DAC128VServer::dac128VServer(DAC128VServer *pDAC128VServer)
@@ -77,3 +78,24 @@ void DAC128VServer::dac128VServer(DAC128VServer *pDAC128VServer)
         }
     }
 }
+
+static const iocshArg initArg0 = { "Server name",iocshArgString};
+static const iocshArg initArg1 = { "Carrier",iocshArgInt};
+static const iocshArg initArg2 = { "Slot",iocshArgInt};
+static const iocshArg initArg3 = { "queueSize",iocshArgInt};
+static const iocshArg * const initArgs[4] = {&initArg0,
+                                             &initArg1,
+                                             &initArg2,
+                                             &initArg3};
+static const iocshFuncDef initFuncDef = {"initDAC128V",4,initArgs};
+static void initCallFunc(const iocshArgBuf *args)
+{
+    initDAC128V(args[0].sval, (int) args[1].sval, (int) args[2].sval, (int) args[3].sval);
+}
+
+void dac128VRegister(void)
+{
+    iocshRegister(&initFuncDef,initCallFunc);
+}
+
+epicsExportRegistrar(dac128VRegister);
