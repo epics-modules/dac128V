@@ -1,4 +1,4 @@
-#FILE... singleDAC8_settings.req
+#FILE... 8chan_DAC_settings.req
 #USAGE... 8-channel singleDAC.db fields autosave'd.
 file "singleDAC_settings.req", P=$(P), D=$(D), N=1
 file "singleDAC_settings.req", P=$(P), D=$(D), N=2
