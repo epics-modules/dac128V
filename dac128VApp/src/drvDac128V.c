@@ -28,6 +28,8 @@ static asynStatus writeInt32(void *drvPvt, asynUser *pasynUser,
                              epicsInt32 value);
 static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, 
                             epicsInt32 *value);
+static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, 
+                             epicsInt32 *low, epicsInt32 *high);
 static asynStatus writeFloat64(void *drvPvt, asynUser *pasynUser, 
                                epicsFloat64 value);
 static asynStatus readFloat64(void *drvPvt, asynUser *pasynUser, 
@@ -46,7 +48,8 @@ static const struct asynCommon dac128VCommon = {
 /* asynInt32 methods */
 static const asynInt32 drvDac128VInt32 = {
    writeInt32,
-   readInt32
+   readInt32,
+   getBounds
 };
 
 /* asynFloat64 methods */
@@ -134,6 +137,14 @@ static asynStatus writeInt32(void *drvPvt, asynUser *pasynUser,
     asynPrint(pasynUser, ASYN_TRACEIO_DRIVER, 
               "drvDac128V, port %s, wrote %d to channel %d\n",
               pPvt->portName, value, channel);
+    return(0);
+}
+
+static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, 
+                             epicsInt32 *low, epicsInt32 *high)
+{
+    *low = 0;
+    *high = 4095;
     return(0);
 }
 
