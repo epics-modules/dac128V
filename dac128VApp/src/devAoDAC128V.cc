@@ -7,8 +7,11 @@
 
 #include <stdlib.h>
 #include <stddef.h>
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
+
+#include <alarm.h>
+#include <recGbl.h>
 
 #include <semLib.h>
 #include <tickLib.h>

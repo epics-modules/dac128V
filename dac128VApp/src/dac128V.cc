@@ -12,53 +12,38 @@ of this distribution.
     Converted to MPF: 9/4/99
 
     17-MAY-2000  MLR  Added getValue() method
+    27-MAY-2003  MLR  Converted to R3.14, used IPAC calls directly.
 
 */
 
-#include <vxWorks.h>
-#include <iv.h>
-#include <stdlib.h>
-#include <stddef.h>
-#include <string.h>
 #include <stdio.h>
+#include <drvIpac.h>
  
 #include "DAC128V.h"
-#include "IndustryPackModule.h"
 
 #define SYSTRAN_ID 0x45
 #define SYSTRAN_DAC128V 0x69
 
 
-DAC128V * DAC128V::init(
-    const char *moduleName, const char *carrierName, const char *siteName)
+DAC128V * DAC128V::init(ushort_t carrier, ushort_t slot)
 {
-    IndustryPackModule *pIPM = IndustryPackModule::createIndustryPackModule(
-        moduleName,carrierName,siteName);
-    if(!pIPM) return(0);
-    unsigned char manufacturer = pIPM->getManufacturer();
-    unsigned char model = pIPM->getModel();
-    if(manufacturer!=SYSTRAN_ID) {
-        printf("initDAC128V manufacturer 0x%x not SYSTRAN_ID\n",
-            manufacturer);
-        return(0);
-    }
-    if(model!=SYSTRAN_DAC128V) {
-       printf("initDAC128V model 0x%x not a SYSTRAN_DAC128V\n",model);
+    if (ipmValidate(carrier, slot, SYSTRAN_ID, SYSTRAN_DAC128V) != 0) {
+       printf("initDAC128V module not found in slot\n");
        return(0);
     }
     // lastChan and maxValue could be set by looking at "model" in the future
     // if models with more channels or more bits are available
     int LastChan = 7;
     int MaxValue = 4095;
-    DAC128V *pDAC128V = new DAC128V(pIPM, LastChan, MaxValue);
+    DAC128V *pDAC128V = new DAC128V(carrier, slot, LastChan, MaxValue);
     return(pDAC128V);
 }
 
 DAC128V::DAC128V(
-    IndustryPackModule *pIndustryPackModule, int lastChan, int maxValue)
-: pIPM(pIndustryPackModule), lastChan(lastChan), maxValue(maxValue)
+    ushort_t carrier, ushort_t slot, int lastChan, int maxValue)
+: lastChan(lastChan), maxValue(maxValue)
 {
-    regs = (unsigned short *) pIPM->getMemBaseIO();
+    regs = (unsigned short *) ipmBaseAddr(carrier, slot, ipac_addrIO);
 }
 
 int DAC128V::setValue(int value, int channel)
