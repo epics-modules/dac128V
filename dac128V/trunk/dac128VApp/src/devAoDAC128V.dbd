@@ -1,3 +1,4 @@
 device(ao,VME_IO,devAoDAC128V,"dac128V")
-registrar(dac128VRegister)
+registrar(dac128VServerRegister)
+registrar(devAoDAC128VRegister)
 

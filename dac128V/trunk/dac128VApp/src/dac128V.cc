@@ -17,6 +17,7 @@ of this distribution.
 */
 
 #include <stdio.h>
+#include <string.h>
 #include <drvIpac.h>
 #include <gpHash.h>
  
@@ -40,7 +41,9 @@ DAC128V * DAC128V::init(const char *name, ushort_t carrier, ushort_t slot)
     DAC128V *pDAC128V = new DAC128V(carrier, slot, LastChan, MaxValue);
 
     if (dac128VHash == NULL) gphInitPvt(&dac128VHash, 256);
-    GPHENTRY *hashEntry = gphAdd(dac128VHash, name, NULL);
+    char *temp = (char *)malloc(strlen(name)+1);
+    strcpy(temp, name);
+    GPHENTRY *hashEntry = gphAdd(dac128VHash, temp, NULL);
     hashEntry->userPvt = pDAC128V;
 
     return(pDAC128V);
