@@ -1,0 +1,184 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>dac128V.html</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1 align="center">Systran DAC128V</h1>
+
+<h2 align="center">Current Author: Mark Rivers</h2>
+
+<h2 align="center">Original Author: Jim Kolakowski</h2>
+
+<p>&nbsp;</p>
+
+<p>This file describes support for the Systran DAC128V, an 8
+channel, 12-bit D/A converter. The following files are included
+in this support, which is available as a <a
+href="http://cars.uchicago.edu/software/pub/dac128VApp.tar">tar file</a>:</p>
+
+<ul>
+    <li><table border="1">
+            <tr>
+                <td>DAC128V.h</td>
+                <td>defines dac128V class</td>
+            </tr>
+            <tr>
+                <td>dac128V.cc</td>
+                <td>communicates with hardware</td>
+            </tr>
+            <tr>
+                <td>dac128VServer.cc</td>
+                <td>MPF server, interface between MPF and
+                dac128V.cc</td>
+            </tr>
+            <tr>
+                <td>devAoDAC128V.cc</td>
+                <td>EPICS device support code for ao (analog
+                output record)</td>
+            </tr>
+            <tr>
+                <td>devAoDAC128V.dbd</td>
+                <td>EPICS device support definition for ao
+                (analog output record)</td>
+            </tr>
+            <tr>
+                <td>dac128VREADME.html</td>
+                <td>This documentation file</td>
+            </tr>
+        </table>
+    </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2 align="center">Class DAC128V</h2>
+
+<p>This is a very simple class. This is the public interface of
+the DAC128V class: </p>
+
+<pre>
+class DAC128V
+{
+public:
+    static DAC128V * init(
+        const char *moduleName, const char *carrierName, const char *siteName);
+    int setValue(int value, int channel);
+    int getValue(int *value, int channel);
+</pre>
+
+<p>Brief description of these functions: </p>
+
+<ul>
+    <li><tt>init()</tt> is called from <tt>initDAC128V</tt> which
+        is discussed below. </li>
+    <li><tt>setValue()</tt> sets the DAC value for a channel in
+        raw units. It is called from dac128VServer.</li>
+    <li><tt>getValue()</tt> reads the current DAC value for a
+        channel in raw units. It is called, for example, from the
+        Ip300PID class.</li>
+</ul>
+
+<p>This is an extremely simple server and IP driver. It simply
+writes an unsigned short into a register. </p>
+
+<p>&nbsp;</p>
+
+<h2 align="center">devAoDAC128V.dbd</h2>
+
+<p>This file contains the single line:</p>
+
+<pre>device(ao,VME_IO,devAoDAC128V,&quot;dac128V&quot;)</pre>
+
+<p>&nbsp;</p>
+
+<h2 align="center">EPICS Device Support</h2>
+
+<p>EPICS device support sends Int32Messages with the following
+info</p>
+
+<ul>
+    <li><tt>address</tt> - channel to write to (range 0-7)</li>
+    <li><tt>value</tt> - value to write (range 0-4095)</li>
+</ul>
+
+<p>MPF server returns</p>
+
+<ul>
+    <li><tt>status=0</tt> means success, anything else is failure</li>
+</ul>
+
+<p>Standard input record type format is for ao records</p>
+
+<p><tt>field(SCAN,&quot;1 second&quot;) </tt></p>
+
+<p><tt>field(DTYP,&quot;dac128V&quot;) </tt>(or whatever it might
+be called in your .dbd file)</p>
+
+<p><tt>field(INP,&quot;#C{card} S{signal} @{servername}<br>
+card = The location of the server<br>
+signal = The output channel of the DAC128V. Channels 0 - 7 are
+valid<br>
+servername = Must match the modulename specified with initDAC128V
+</tt></p>
+
+<p><tt>field(EGUF,&quot;{FULL VALUE}&quot;)</tt> This is set by a
+jumper on the IP module. The jumper affects groups of 4 channels.
+The choices are -10V, -5V, 0V, +5V and +10V.</p>
+
+<p><tt>field(EGUL,&quot;{LOW VALUE}&quot;)</tt> This is set by a
+jumper on the IP module. The jumper affects groups of 4 channels.
+The choices are -10V, -5V, 0V, +5V and +10V.</p>
+
+<p><tt>field(LINR,&quot;LINEAR&quot;) </tt>Optional</p>
+
+<p>NOTE: The DAC128V powers up with each output set to midrange,
+i.e. 2048. This will only be 0V if the module is jumpered for
+symmetric, bipolar ouput. BEWARE!!!!</p>
+
+<p>&nbsp;</p>
+
+<h2 align="center">Server Configuration</h2>
+
+<pre>pDAC128V = initDAC128V(&quot;modulename&quot;, &quot;carrier&quot;, &quot;site&quot;, &quot;queueSize&quot;)</pre>
+
+<p>where </p>
+
+<ul>
+    <li><tt>modulename</tt> - must match the INP parm field in
+        records </li>
+    <li><tt>carrier</tt> - The ip carrier name</li>
+    <li><tt>site</tt> - carrier IP site</li>
+    <li><tt>queueSize</tt> - message queue size. Make this the
+        maximum number of records attached to this device.</li>
+    <li><tt>pDAC128V</tt> - pointer to a DAC128V object. This
+        pointer is needed, for example, in initIp330PID. </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2 align="center">Release Notes</h2>
+
+<ul>
+    <li>May 17, 2000. Added <font face="Times New Roman"><code>getValue()</code></font>
+        method, needed by Ip300PID class.</li>
+    <li>Sept. 27, 2002.&nbsp; Fixed bug in device support initialization.&nbsp;
+      It was returning 0, rather than 2 (MPF_NoConvert).&nbsp; This could cause
+      the initial value of the .VAL field to be corrupted.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<address>
+    Suggestions and Comments to: <br>
+    <a href="mailto:rivers@cars.uchicago.edu">Mark Rivers </a>:
+    (rivers@cars.uchicago.edu) <br>
+    Last modified: September 27, 2002 
+</address>
+</body>
+</html>
