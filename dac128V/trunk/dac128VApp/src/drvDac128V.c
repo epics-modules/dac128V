@@ -46,7 +46,7 @@ static const struct asynCommon dac128VCommon = {
 };
 
 /* asynInt32 methods */
-static const asynInt32 drvDac128VInt32 = {
+static asynInt32 drvDac128VInt32 = {
    writeInt32,
    readInt32,
    getBounds,
@@ -55,7 +55,7 @@ static const asynInt32 drvDac128VInt32 = {
 };
 
 /* asynFloat64 methods */
-static const asynFloat64 drvDac128VFloat64 = {
+static asynFloat64 drvDac128VFloat64 = {
    writeFloat64,
    readFloat64,
    NULL,
