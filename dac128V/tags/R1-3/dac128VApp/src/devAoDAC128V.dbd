@@ -1,0 +1,1 @@
+device(ao,VME_IO,devAoDAC128V,"dac128V")

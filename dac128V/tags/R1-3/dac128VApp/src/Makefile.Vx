@@ -1,0 +1,12 @@
+# Makefile.Vx
+TOP = ../../..
+include $(TOP)/config/CONFIG_APP
+
+SRCS.cc += ../dac128V.cc ../dac128VServer.cc ../devAoDAC128V.cc
+
+PROD += devAoDAC128V.o 
+LIBOBJS += dac128V.o
+LIBOBJS += dac128VServer.o
+LIBNAME = dac128VLib
+
+include $(TOP)/config/RULES.Vx
