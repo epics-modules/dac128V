@@ -6,12 +6,9 @@ include $(TOP)/configure/CONFIG
 
 LIBRARY_IOC += dac128V
 
-dac128V_SRCS_vxWorks += dac128V.cc
-dac128V_SRCS_vxWorks += devAoDAC128V.cc
-dac128V_SRCS_vxWorks += dac128VServer.cc
+dac128V_SRCS_vxWorks += drvDac128V.c
 
-DBD += devAoDAC128V.dbd
-INC += DAC128V.h
+DBD += dac128VSupport.dbd
 
 dac128V_LIBS += $(EPICS_BASE_IOC_LIBS)
 #=============================
