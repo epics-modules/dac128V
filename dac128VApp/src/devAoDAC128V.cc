@@ -17,7 +17,6 @@
 #include <tickLib.h>
 #include <taskLib.h>
 
-extern "C" {
 #include "dbAccess.h"
 #include "dbDefs.h"
 #include "link.h"
@@ -25,7 +24,9 @@ extern "C" {
 #include "dbCommon.h"
 #include "aoRecord.h"
 #include "recSup.h"
-}
+#include "epicsTypes.h"
+#include "epicsExport.h"
+#include "symTable.h"
 
 #include "Message.h"
 #include "Int32Message.h"
@@ -123,3 +124,11 @@ long aoDAC::convert(dbCommon* pr, int pass)
 
         return 0;
 }
+
+void devAoDAC128VRegister(void) 
+{
+     addSymbol("devAoDAC128VDebug", (epicsInt32 *)&devAoDAC128VDebug, epicsInt32T);
+}
+
+epicsExportRegistrar(devAoDAC128VRegister);
+

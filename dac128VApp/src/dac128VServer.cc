@@ -90,12 +90,12 @@ static const iocshArg * const initArgs[4] = {&initArg0,
 static const iocshFuncDef initFuncDef = {"initDAC128V",4,initArgs};
 static void initCallFunc(const iocshArgBuf *args)
 {
-    initDAC128V(args[0].sval, (int) args[1].sval, (int) args[2].sval, (int) args[3].sval);
+    initDAC128V(args[0].sval, args[1].ival, args[2].ival, args[3].ival);
 }
 
-void dac128VRegister(void)
+void dac128VServerRegister(void)
 {
     iocshRegister(&initFuncDef,initCallFunc);
 }
 
-epicsExportRegistrar(dac128VRegister);
+epicsExportRegistrar(dac128VServerRegister);
