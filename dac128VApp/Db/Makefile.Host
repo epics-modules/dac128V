@@ -1,0 +1,13 @@
+# Makefile.Host
+TOP = ../../..
+include $(TOP)/config/CONFIG_APP
+
+#----------------------------------------------------
+# Add databases, templates, substitutions like this
+
+DB += DAC.template
+
+include $(TOP)/config/RULES.Db
+#----------------------------------------
+#  ADD RULES AFTER THIS LINE
+
