@@ -25,9 +25,12 @@ public:
     virtual asynStatus getBounds(asynUser *pasynUser, epicsInt32 *low, epicsInt32 *high);
     virtual asynStatus writeFloat64(asynUser *pasynUser, epicsFloat64 value);
     virtual asynStatus readFloat64(asynUser *pasynUser, epicsFloat64 *value);
-    virtual asynStatus drvUserCreate(asynUser *pasynUser, const char *drvInfo,
-                                     const char **pptypeName, size_t *psize);
     virtual void report(FILE *fp, int details);
+
+protected:
+    int DAC128V_Data;       /**< (asynInt32, asynFloat64,    r/w) DAC output value in device units */
+    #define FIRST_DAC_PARAM DAC128V_Data
+    #define LAST_DAC_PARAM DAC128V_Data
     
 private:
     int lastChan;
@@ -35,23 +38,13 @@ private:
     volatile unsigned short* regs;    
 };
 
-/** Enumeration of parameters that affect the behaviour of the driver. 
-  * These are the values that asyn will place in pasynUser->reason when the
-  * standard asyn interface methods are called. */
-typedef enum
-{
-    /*    Name               asyn interface          access   Description  */
-    DAC128V_Data      /**< (asynInt32, asynFloat64,    r/w) DAC output value in device units */
-} DAC128VDriverParam_t;
 
-static asynParamString_t DAC128VParamString[] = {
-    {DAC128V_Data,   "DATA"}
-};
+#define DAC128VDataString  "DATA"
 
-#define NUM_PARAMS (sizeof(DAC128VParamString)/sizeof(DAC128VParamString[0]))
+#define NUM_PARAMS (&LAST_DAC_PARAM - &FIRST_DAC_PARAM + 1)
 
 DAC128V::DAC128V(const char *portName, int carrier, int slot)
-    : asynPortDriver(portName, MAX_CHANNELS-1, NUM_PARAMS, 
+    : asynPortDriver(portName, MAX_CHANNELS, NUM_PARAMS, 
           asynInt32Mask | asynFloat64Mask | asynDrvUserMask,
           asynInt32Mask | asynFloat64Mask, 
           ASYN_MULTIDEVICE, 1, /* ASYN_CANBLOCK=0, ASYN_MULTIDEVICE=1, autoConnect=1 */
@@ -59,6 +52,8 @@ DAC128V::DAC128V(const char *portName, int carrier, int slot)
 {
     static const char *functionName = "DAC128V";
 
+    createParam(DAC128VDataString, asynParamInt32, &DAC128V_Data);
+    
     if (ipmValidate(carrier, slot, SYSTRAN_ID, SYSTRAN_DAC128V) != 0) {
        asynPrint(this->pasynUserSelf, ASYN_TRACE_ERROR,
             "%s:%s: module not found in carrier %d slot %d\n",
@@ -78,7 +73,7 @@ asynStatus DAC128V::writeInt32(asynUser *pasynUser, epicsInt32 value)
     int channel;
     static const char *functionName = "writeInt32";
 
-    this->getAddress(pasynUser, functionName, &channel);
+    this->getAddress(pasynUser, &channel);
     if(value<0 || value>this->maxValue || channel<0 || channel>this->lastChan)
         return(asynError);
     this->regs[channel] = value;
@@ -105,7 +100,7 @@ asynStatus DAC128V::readInt32(asynUser *pasynUser, epicsInt32 *value)
     int channel;
     static const char *functionName = "readInt32";
 
-    this->getAddress(pasynUser, functionName, &channel);
+    this->getAddress(pasynUser, &channel);
     if(channel<0 || channel>this->lastChan) return(asynError);
     *value=this->regs[channel];
     asynPrint(pasynUser, ASYN_TRACEIO_DRIVER, 
@@ -122,25 +117,6 @@ asynStatus DAC128V::readFloat64(asynUser *pasynUser, epicsFloat64 *value)
     status = this->readInt32(pasynUser, &ivalue);
     *value = (epicsFloat64)ivalue;
     return(status);
-}
-
-/** Sets pasynUser->reason to one of the enum values for the DAC128VDriverParam_t values
-  * if the drvInfo field matches one the strings defined above.
-  * Simply calls asynPortDriver::drvUserCreateParam with the parameter table for this driver.
-  * \param[in] pasynUser pasynUser structure that driver modifies
-  * \param[in] drvInfo String containing information about what driver function is being referenced
-  * \param[out] pptypeName Location in which driver puts a copy of drvInfo.
-  * \param[out] psize Location where driver puts size of param 
-  * \return Returns asynSuccess if a matching string was found, asynError if not found. */
-asynStatus DAC128V::drvUserCreate(asynUser *pasynUser,
-                                            const char *drvInfo, 
-                                            const char **pptypeName, size_t *psize)
-{
-    asynStatus status;
-    //const char *functionName = "drvUserCreate";
-    status = this->drvUserCreateParam(pasynUser, drvInfo, pptypeName, psize, 
-                                      DAC128VParamString, NUM_PARAMS);
-    return(status);    
 }
 
 /* Report  parameters */
