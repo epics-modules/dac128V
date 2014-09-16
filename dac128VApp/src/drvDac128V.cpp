@@ -137,8 +137,7 @@ void DAC128V::report(FILE *fp, int details)
 /** Configuration command, called directly or from iocsh */
 extern "C" int initDAC128V(const char *portName, int carrier, int slot)
 {
-    DAC128V *pDAC128V = new DAC128V(portName, carrier, slot);
-    pDAC128V = NULL;  /* This is just to avoid compiler warnings */
+    new DAC128V(portName, carrier, slot);
     return(asynSuccess);
 }
 
