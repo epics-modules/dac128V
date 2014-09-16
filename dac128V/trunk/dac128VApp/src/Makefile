@@ -4,9 +4,11 @@ include $(TOP)/configure/CONFIG
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
 
-LIBRARY_IOC += dac128V
+LIBRARY_IOC_vxWorks += dac128V
+LIBRARY_IOC_RTEMS   += dac128V
+LIBRARY_IOC_Linux   += dac128V
 
-dac128V_SRCS_vxWorks += drvDac128V.c
+dac128V_SRCS += drvDac128V.c
 
 DBD += dac128VSupport.dbd
 
