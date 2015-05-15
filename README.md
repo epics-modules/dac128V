@@ -1,5 +1,3 @@
-dac128V
-=======
 An [EPICS](http://www.aps.anl.gov/epics/) 
 module that supports the DAC128V Industry Pack 8-channel 12-bit D/A converter from
 [Systran](http://www.systran.com). 
