@@ -14,7 +14,7 @@
 #-
 #- SUB              - Optional: DAC substitions file (singleDAC.db), 
 #-                              Macros P, D, and PORT will be set for you.
-#-                    Default: $(DAC128V)/iocsh/dac128V_default.substitutions
+#-                    Default: $(DAC128V)/iocsh/EXAMPLE_dac128V.substitutions
 #- ###################################################
 
 
@@ -25,4 +25,4 @@
 #- slot        = IPAC slot (0,1,2,3, etc.)
 initDAC128V("$(PORT=DAC$(CARRIER=0)$(SLOT=0))", $(CARRIER=0), $(SLOT=0))
 
-dbLoadTemplate("$(SUB=$(DAC128V)/iocsh/dac128V_default.substitions)", "P=$(PREFIX), D=$(SLOT), PORT=$(PORT=DAC$(CARRIER=0)$(SLOT=0))")
+dbLoadTemplate("$(SUB=$(DAC128V)/iocsh/EXAMPLE_dac128V.substitutions)", "P=$(PREFIX), D=$(SLOT), PORT=$(PORT=DAC$(CARRIER=0)$(SLOT=0))")
