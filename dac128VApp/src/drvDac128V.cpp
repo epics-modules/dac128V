@@ -29,9 +29,7 @@ public:
 
 protected:
     int DAC128V_Data;          /**< (asynInt32, r/w) DAC output value in device units */
-    #define FIRST_DAC_PARAM DAC128V_Data
     int DAC128V_DoubleData;    /**< (asynFloat64, r/w) DAC output value in device units but double */
-    #define LAST_DAC_PARAM DAC128V_DoubleData
     
 private:
     int lastChan;
@@ -43,10 +41,8 @@ private:
 #define DAC128VDataString        "DATA"
 #define DAC128VDoubleDataString  "DOUBLE_DATA"
 
-#define NUM_PARAMS (&LAST_DAC_PARAM - &FIRST_DAC_PARAM + 1)
-
 DAC128V::DAC128V(const char *portName, int carrier, int slot)
-    : asynPortDriver(portName, MAX_CHANNELS, NUM_PARAMS, 
+    : asynPortDriver(portName, MAX_CHANNELS,
           asynInt32Mask | asynFloat64Mask | asynDrvUserMask,
           asynInt32Mask | asynFloat64Mask, 
           ASYN_MULTIDEVICE, 1, /* ASYN_CANBLOCK=0, ASYN_MULTIDEVICE=1, autoConnect=1 */
