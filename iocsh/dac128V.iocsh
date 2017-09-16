@@ -1,0 +1,28 @@
+# ### dac128V.iocsh ###
+
+#- ###################################################
+#- PREFIX           - IOC Prefix
+#- DAC128V          - Location of the dac128V module
+#- CARRIER          - Optional: IPAC carrier number (0, 1, etc.)
+#-                    Default: 0
+#-
+#- SLOT             - Optional: IPAC slot (0,1,2,3, etc.)
+#-                    Default: 0
+#-
+#- PORT             - Optional: Name to give this asyn port
+#-                    Default: DAC$(CARRIER)$(SLOT)
+#-
+#- SUB              - Optional: DAC substitions file (singleDAC.db), 
+#-                              Macros P, D, and PORT will be set for you.
+#-                    Default: $(DAC128V)/iocsh/EXAMPLE_dac128V.substitutions
+#- ###################################################
+
+
+#- Initialize Systran DAC
+#- initDAC128V(char *portName, int carrier, int slot)
+#- portName  = name to give this asyn port
+#- carrier     = IPAC carrier number (0, 1, etc.)
+#- slot        = IPAC slot (0,1,2,3, etc.)
+initDAC128V("$(PORT=DAC$(CARRIER=0)$(SLOT=0))", $(CARRIER=0), $(SLOT=0))
+
+dbLoadTemplate("$(SUB=$(DAC128V)/iocsh/EXAMPLE_dac128V.substitutions)", "P=$(PREFIX), D=$(SLOT), PORT=$(PORT=DAC$(CARRIER=0)$(SLOT=0))")
