@@ -5,6 +5,6 @@ module that supports the DAC128V Industry Pack 8-channel 12-bit D/A converter fr
 The support is written using asynPortDriver from the [EPICS asyn module](https://github.com/epics-modules/asyn)
 
 Additional information:
-* [Home page](http://cars.uchicago.edu/software/epics/dac128V.html)
-* [Documentation](http://cars.uchicago.edu/software/epics/dac128VDoc.html)
-* [Release notes](http://cars.uchicago.edu/software/epics/dac128VReleaseNotes.html)
+* [Home page](https://cars.uchicago.edu/software/epics/dac128V.html)
+* [Documentation](https://cars.uchicago.edu/software/epics/dac128VDoc.html)
+* [Release notes](https://cars.uchicago.edu/software/epics/dac128VReleaseNotes.html)
