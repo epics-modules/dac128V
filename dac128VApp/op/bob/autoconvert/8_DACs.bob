@@ -1,0 +1,1038 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>8_DACs</name>
+  <x>211</x>
+  <y>160</y>
+  <width>295</width>
+  <height>770</height>
+  <background_color>
+    <color red="187" green="187" blue="187">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="group" version="2.0.0">
+    <name>composite #6</name>
+    <x>15</x>
+    <y>8</y>
+    <width>264</width>
+    <height>89</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #9</name>
+      <text>DAC$(D)_1</text>
+      <x>72</x>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #12</name>
+      <pv_name>$(P)DAC$(D)_1.VAL</pv_name>
+      <x>82</x>
+      <y>22</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #16</name>
+      <text>Value</text>
+      <x>32</x>
+      <y>25</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="scrollbar" version="2.0.0">
+      <name>valuator #19</name>
+      <pv_name>$(P)DAC$(D)_1.VAL</pv_name>
+      <x>32</x>
+      <y>43</y>
+      <width>200</width>
+      <height>25</height>
+      <bar_length>1.0</bar_length>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #23</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_1_tweak.A</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_1_tweak.A</pv_name>
+      <text>&lt;</text>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #26</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_1_tweak.B</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_1_tweak.B</pv_name>
+      <text>&gt;</text>
+      <x>237</x>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #29</name>
+      <pv_name>$(P)DAC$(D)_1_tweakVal</pv_name>
+      <x>82</x>
+      <y>69</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #33</name>
+      <text>Tweak</text>
+      <x>32</x>
+      <y>72</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #36</name>
+    <x>15</x>
+    <y>102</y>
+    <width>264</width>
+    <height>89</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #39</name>
+      <text>DAC$(D)_2</text>
+      <x>72</x>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #42</name>
+      <pv_name>$(P)DAC$(D)_2.VAL</pv_name>
+      <x>82</x>
+      <y>22</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #46</name>
+      <text>Value</text>
+      <x>32</x>
+      <y>25</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="scrollbar" version="2.0.0">
+      <name>valuator #49</name>
+      <pv_name>$(P)DAC$(D)_2.VAL</pv_name>
+      <x>32</x>
+      <y>43</y>
+      <width>200</width>
+      <height>25</height>
+      <bar_length>1.0</bar_length>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #53</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_2_tweak.A</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_2_tweak.A</pv_name>
+      <text>&lt;</text>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #56</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_2_tweak.B</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_2_tweak.B</pv_name>
+      <text>&gt;</text>
+      <x>237</x>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #59</name>
+      <pv_name>$(P)DAC$(D)_2_tweakVal</pv_name>
+      <x>82</x>
+      <y>69</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #63</name>
+      <text>Tweak</text>
+      <x>32</x>
+      <y>72</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #66</name>
+    <x>15</x>
+    <y>196</y>
+    <width>264</width>
+    <height>89</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #69</name>
+      <text>DAC$(D)_3</text>
+      <x>72</x>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #72</name>
+      <pv_name>$(P)DAC$(D)_3.VAL</pv_name>
+      <x>82</x>
+      <y>22</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #76</name>
+      <text>Value</text>
+      <x>32</x>
+      <y>25</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="scrollbar" version="2.0.0">
+      <name>valuator #79</name>
+      <pv_name>$(P)DAC$(D)_3.VAL</pv_name>
+      <x>32</x>
+      <y>43</y>
+      <width>200</width>
+      <height>25</height>
+      <bar_length>1.0</bar_length>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #83</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_3_tweak.A</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_3_tweak.A</pv_name>
+      <text>&lt;</text>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #86</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_3_tweak.B</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_3_tweak.B</pv_name>
+      <text>&gt;</text>
+      <x>237</x>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #89</name>
+      <pv_name>$(P)DAC$(D)_3_tweakVal</pv_name>
+      <x>82</x>
+      <y>69</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #93</name>
+      <text>Tweak</text>
+      <x>32</x>
+      <y>72</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #96</name>
+    <x>15</x>
+    <y>290</y>
+    <width>264</width>
+    <height>89</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #99</name>
+      <text>DAC$(D)_4</text>
+      <x>72</x>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #102</name>
+      <pv_name>$(P)DAC$(D)_4.VAL</pv_name>
+      <x>82</x>
+      <y>22</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #106</name>
+      <text>Value</text>
+      <x>32</x>
+      <y>25</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="scrollbar" version="2.0.0">
+      <name>valuator #109</name>
+      <pv_name>$(P)DAC$(D)_4.VAL</pv_name>
+      <x>32</x>
+      <y>43</y>
+      <width>200</width>
+      <height>25</height>
+      <bar_length>1.0</bar_length>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #113</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_4_tweak.A</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_4_tweak.A</pv_name>
+      <text>&lt;</text>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #116</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_4_tweak.B</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_4_tweak.B</pv_name>
+      <text>&gt;</text>
+      <x>237</x>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #119</name>
+      <pv_name>$(P)DAC$(D)_4_tweakVal</pv_name>
+      <x>82</x>
+      <y>69</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #123</name>
+      <text>Tweak</text>
+      <x>32</x>
+      <y>72</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #126</name>
+    <x>15</x>
+    <y>384</y>
+    <width>264</width>
+    <height>89</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #129</name>
+      <text>DAC$(D)_5</text>
+      <x>72</x>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #132</name>
+      <pv_name>$(P)DAC$(D)_5.VAL</pv_name>
+      <x>82</x>
+      <y>22</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #136</name>
+      <text>Value</text>
+      <x>32</x>
+      <y>25</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="scrollbar" version="2.0.0">
+      <name>valuator #139</name>
+      <pv_name>$(P)DAC$(D)_5.VAL</pv_name>
+      <x>32</x>
+      <y>43</y>
+      <width>200</width>
+      <height>25</height>
+      <bar_length>1.0</bar_length>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #143</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_5_tweak.A</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_5_tweak.A</pv_name>
+      <text>&lt;</text>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #146</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_5_tweak.B</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_5_tweak.B</pv_name>
+      <text>&gt;</text>
+      <x>237</x>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #149</name>
+      <pv_name>$(P)DAC$(D)_5_tweakVal</pv_name>
+      <x>82</x>
+      <y>69</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #153</name>
+      <text>Tweak</text>
+      <x>32</x>
+      <y>72</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #156</name>
+    <x>15</x>
+    <y>478</y>
+    <width>264</width>
+    <height>89</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #159</name>
+      <text>DAC$(D)_6</text>
+      <x>72</x>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #162</name>
+      <pv_name>$(P)DAC$(D)_6.VAL</pv_name>
+      <x>82</x>
+      <y>22</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #166</name>
+      <text>Value</text>
+      <x>32</x>
+      <y>25</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="scrollbar" version="2.0.0">
+      <name>valuator #169</name>
+      <pv_name>$(P)DAC$(D)_6.VAL</pv_name>
+      <x>32</x>
+      <y>43</y>
+      <width>200</width>
+      <height>25</height>
+      <bar_length>1.0</bar_length>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #173</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_6_tweak.A</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_6_tweak.A</pv_name>
+      <text>&lt;</text>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #176</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_6_tweak.B</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_6_tweak.B</pv_name>
+      <text>&gt;</text>
+      <x>237</x>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #179</name>
+      <pv_name>$(P)DAC$(D)_6_tweakVal</pv_name>
+      <x>82</x>
+      <y>69</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #183</name>
+      <text>Tweak</text>
+      <x>32</x>
+      <y>72</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #186</name>
+    <x>15</x>
+    <y>572</y>
+    <width>264</width>
+    <height>89</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #189</name>
+      <text>DAC$(D)_7</text>
+      <x>72</x>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #192</name>
+      <pv_name>$(P)DAC$(D)_7.VAL</pv_name>
+      <x>82</x>
+      <y>22</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #196</name>
+      <text>Value</text>
+      <x>32</x>
+      <y>25</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="scrollbar" version="2.0.0">
+      <name>valuator #199</name>
+      <pv_name>$(P)DAC$(D)_7.VAL</pv_name>
+      <x>32</x>
+      <y>43</y>
+      <width>200</width>
+      <height>25</height>
+      <bar_length>1.0</bar_length>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #203</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_7_tweak.A</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_7_tweak.A</pv_name>
+      <text>&lt;</text>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #206</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_7_tweak.B</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_7_tweak.B</pv_name>
+      <text>&gt;</text>
+      <x>237</x>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #209</name>
+      <pv_name>$(P)DAC$(D)_7_tweakVal</pv_name>
+      <x>82</x>
+      <y>69</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #213</name>
+      <text>Tweak</text>
+      <x>32</x>
+      <y>72</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #216</name>
+    <x>15</x>
+    <y>666</y>
+    <width>264</width>
+    <height>89</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #219</name>
+      <text>DAC$(D)_8</text>
+      <x>72</x>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #222</name>
+      <pv_name>$(P)DAC$(D)_8.VAL</pv_name>
+      <x>82</x>
+      <y>22</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #226</name>
+      <text>Value</text>
+      <x>32</x>
+      <y>25</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="scrollbar" version="2.0.0">
+      <name>valuator #229</name>
+      <pv_name>$(P)DAC$(D)_8.VAL</pv_name>
+      <x>32</x>
+      <y>43</y>
+      <width>200</width>
+      <height>25</height>
+      <bar_length>1.0</bar_length>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #233</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_8_tweak.A</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_8_tweak.A</pv_name>
+      <text>&lt;</text>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #236</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)DAC$(D)_8_tweak.B</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)DAC$(D)_8_tweak.B</pv_name>
+      <text>&gt;</text>
+      <x>237</x>
+      <y>44</y>
+      <width>27</width>
+      <height>24</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #239</name>
+      <pv_name>$(P)DAC$(D)_8_tweakVal</pv_name>
+      <x>82</x>
+      <y>69</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #243</name>
+      <text>Tweak</text>
+      <x>32</x>
+      <y>72</y>
+      <width>45</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+</display>
