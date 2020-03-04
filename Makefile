@@ -5,5 +5,5 @@ DIRS := $(DIRS) $(filter-out $(DIRS), configure)
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *App))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *app))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocBoot))
-ip230AApp_DEPEND_DIRS = configure
+dac128VApp_DEPEND_DIRS = configure
 include $(TOP)/configure/RULES_TOP

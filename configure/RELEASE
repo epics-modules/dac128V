@@ -8,18 +8,20 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 # define INSTALL_LOCATION_APP here
 #INSTALL_LOCATION_APP=<fullpathname>
 
-SUPPORT=/APSshare/epics/synApps_6_1/support
--include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
+SUPPORT=/corvette/home/epics/devel
 
-ASYN=$(SUPPORT)/asyn-R4-36
+ASYN=$(SUPPORT)/asyn-4-36
 
 IPAC=$(SUPPORT)/ipac-2-15
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/APSshare/epics/base-3.15.6
--include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
+EPICS_BASE=/corvette/usr/local/epics-devel/base-7.0.3
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
 #SCH2EDIF_PATH=
+
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
+-include $(TOP)/configure/RELEASE.local
 

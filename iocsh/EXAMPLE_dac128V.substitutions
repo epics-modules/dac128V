@@ -1,4 +1,4 @@
-file "$(IP230A)/ip230AApp/Db/singleDAC.db"
+file "$(DAC128V)/dac128VApp/Db/singleDAC.db"
 {pattern
 {N, S,   EGUL, EGUF, DRVL, DRVH,  LOPR, HOPR,  PREC, LINR, VAL}
 
