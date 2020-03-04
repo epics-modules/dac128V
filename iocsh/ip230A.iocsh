@@ -1,0 +1,30 @@
+# ### ip230A.iocsh ###
+
+#- ###################################################
+#- PREFIX           - IOC Prefix
+#- IP230A          - Location of the ip230A module
+#- CARRIER          - Optional: IPAC carrier number (0, 1, etc.)
+#-                    Default: 0
+#-
+#- SLOT             - Optional: IPAC slot (0,1,2,3, etc.)
+#-                    Default: 0
+#-
+#- PORT             - Optional: Name to give this asyn port
+#-                    Default: DAC$(CARRIER)$(SLOT)
+#-
+#- SUB              - Optional: DAC substitions file (singleDAC.db), 
+#-                              Macros P, D, and PORT will be set for you.
+#-                    Default: $(IP230A)/iocsh/EXAMPLE_ip230A.substitutions
+#- ###################################################
+
+
+#- Initialize Acromag DAC
+#- initIP230A(char *portName, int carrier, int slot)
+#- portName  = name to give this asyn port
+#- carrier     = IPAC carrier number (0, 1, etc.)
+#- slot        = IPAC slot (0,1,2,3, etc.)
+initIP230A("$(PORT=DAC$(CARRIER=0)$(SLOT=0))", $(CARRIER=0), $(SLOT=0))
+#$(PORT) 
+#$(CARRIER) $(SLOT)
+dbLoadTemplate("$(SUB=$(IP230A)/iocsh/ip230A.substitutions)", "P=$(PREFIX), D=$(SLOT=0), PORT=$(PORT=DAC$(CARRIER=0)$(SLOT=0))")
+#dbLoadTemplate("$(IP230A)/iocsh/ip230A.substitutions")
